@@ -5,11 +5,11 @@ This is app with 3 Task for recruitment process. All 3 task have your own test t
 - maven 3
 
 Comends to run app:
-mvn install
-java -cp target/lsn-dev-test-1.0.jar Main
+- mvn install
+- java -cp target/lsn-dev-test-1.0.jar polowiec.mateusz.Main
 
 After taht you can choose one of 4 options:
-1 - Sort numbers is Task1
-2 - Calculate numbers is Task2
-3 - Count graphs is Task 3
-0 - Exit is end of program
+- 1 - Sort numbers is Task1
+- 2 - Calculate numbers is Task2
+- 3 - Count graphs is Task 3
+- 0 - Exit is end of program
