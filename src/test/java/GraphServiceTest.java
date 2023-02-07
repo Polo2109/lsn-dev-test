@@ -12,7 +12,7 @@ class GraphServiceTest {
 
     @Test
     void shouldCountSeparatedGraphs() {
-        String userInput = String.format("3%s2 3%s1 2%s5 6",
+        String userInput = String.format("3%s1 2%s2 3%s4 5",
                 System.lineSeparator(),
                 System.lineSeparator(),
                 System.lineSeparator());

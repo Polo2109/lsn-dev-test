@@ -1,33 +1,25 @@
 package polowiec.mateusz.service;
 
-import polowiec.mateusz.model.VerticesPair;
-
 import java.util.*;
 
 public class GraphService {
     
     public void countSeparatedGraphs(Scanner input) {
+        Map<Integer, Integer> connectionsMap = new HashMap<>();
+        int result = 0;
+
         List<String> loadedNumbers = loadNumbers(input);
 
-        List<VerticesPair> pairsOfVertices = new ArrayList<>();
+        loadedNumbers.forEach(numbers -> {
+            String[] separatedNumbers = numbers.split(" ");
+            connectionsMap.put(Integer.parseInt(separatedNumbers[0]), Integer.parseInt(separatedNumbers[1]));
+        });
 
-        for (String loadedNumber : loadedNumbers) {
-            List<Integer> pairOfNumbers = Arrays.stream(loadedNumber.split(" "))
-                    .map(Integer::valueOf)
-                    .toList();
-
-            pairsOfVertices.add(new VerticesPair(pairOfNumbers.get(0), pairOfNumbers.get(1)));
+        for (Map.Entry<Integer, Integer> entry : connectionsMap.entrySet()) {
+            if (connectionsMap.get(entry.getValue()) == null)
+                result++;
         }
-        List<Integer> allSecondNumbers = pairsOfVertices.stream()
-                .map(VerticesPair::getSecondNumber)
-                .toList();
-
-        int amountOfGraph = 0;
-        for (VerticesPair verticesPair : pairsOfVertices) {
-            if (!allSecondNumbers.contains(verticesPair.getFirstNumber()))
-                amountOfGraph++;
-        }
-        System.out.println("AmountOfGraph: " + amountOfGraph);
+        System.out.println("AmountOfGraph: " + result);
 
     }
 
