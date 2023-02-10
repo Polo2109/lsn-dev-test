@@ -12,7 +12,7 @@ class GraphServiceTest {
 
     @Test
     void shouldCountSeparatedGraphs() {
-        String userInput = String.format("3%s1 2%s2 3%s4 5",
+        String userInput = String.format("3%s1 3%s1 2%s3 4",
                 System.lineSeparator(),
                 System.lineSeparator(),
                 System.lineSeparator());
@@ -28,6 +28,6 @@ class GraphServiceTest {
 
         String[] lines = baos.toString().split(System.lineSeparator());
 
-        assertEquals("AmountOfGraph: 2", lines[lines.length-1]);
+        assertEquals("AmountOfGraph: 1", lines[lines.length-1]);
     }
 }
